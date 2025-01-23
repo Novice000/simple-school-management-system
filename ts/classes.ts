@@ -36,47 +36,47 @@ class Subjects {
 }
 
 class Student extends Person {
-    private id: number | undefined
-    name: string
-    age: number
-    grade: number
-    private subjects: Subjects
-    constructor(name: string, age: number, grade: number) {
-        super()
-        this.name = name
-        this.age = age
-        this.subjects = new Subjects();
-        this.grade = grade
-    }
+  private id: number | undefined;
+  name: string;
+  age: number;
+  grade: number;
+  private subjects: Subjects;
+  constructor(name: string, age: number, grade: number) {
+    super();
+    this.id = undefined;
+    this.name = name;
+    this.age = age;
+    this.subjects = new Subjects();
+    this.grade = grade;
+  }
 
+  register(subject: string, mark: number = 0) {
+    this.subjects.addSubject(subject, mark);
+  }
 
-    register(subject: string, mark: number = 0) { 
-        this.subjects.addSubject(subject, mark);
-    }
+  setStudentId(id: number) {
+    this.id = id;
+  }
 
-    setStudentId(id: number) {
-        this.id = id;
-    }
+  get getStudentId() {
+    return this.id;
+  }
 
-    get getStudentId() {
-        return this.id;
-    }
+  getAverage() {
+    return this.subjects.avergage();
+  }
+  getScore(subject: string) {
+    return this.subjects.getScore(subject);
+  }
 
-    getAverage() {
-        return this.subjects.avergage();
-    }
-    getScore(subject: string) {
-        return this.subjects.getScore(subject);
-    }
-
-    getSubjects() {
-        return this.subjects
-    }
-
-    
-    toString() {
-        return `Id: ${this.id}, Name: ${this.name}, Age: ${this.age}, Grade: ${this.grade}`;
-    }
+  getSubjects() {
+    return this.subjects;
+  }
+  
+  toString() {
+    const subjectsInfo = this.subjects.toString();
+    return `Id: ${this.id}\nName: ${this.name}\nAge: ${this.age}\nGrade: ${this.grade}\nSubjects: {\n${subjectsInfo}}`;
+  }
 }
 
 
@@ -120,7 +120,7 @@ class SchoolManager {
     return this.students.filter((student) => student.grade === grade);
   }
 
-  getAverageByGrade(grade: number): number {
+  getAverageByGrade(grade: number) {
     const students = this.getStudentsByGrade(grade);
     if (students.length === 0) return 0;
 

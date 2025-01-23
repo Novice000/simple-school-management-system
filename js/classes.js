@@ -34,6 +34,7 @@ class Subjects {
 class Student extends Person {
     constructor(name, age, grade) {
         super();
+        this.id = undefined;
         this.name = name;
         this.age = age;
         this.subjects = new Subjects();
@@ -58,7 +59,8 @@ class Student extends Person {
         return this.subjects;
     }
     toString() {
-        return `Id: ${this.id}, Name: ${this.name}, Age: ${this.age}, Grade: ${this.grade}`;
+        const subjectsInfo = this.subjects.toString();
+        return `Id: ${this.id}\nName: ${this.name}\nAge: ${this.age}\nGrade: ${this.grade}\nSubjects: {\n${subjectsInfo}}`;
     }
 }
 class SchoolManager {
