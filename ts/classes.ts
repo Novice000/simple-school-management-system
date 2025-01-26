@@ -8,6 +8,7 @@ abstract class Person {
     abstract age: number
 }
 
+// abstraction and encapsulation
 class Subjects {
   private subjectsMap: Map<string, number> = new Map();
   addSubject(subject: string, mark: number = 0) {
@@ -35,6 +36,7 @@ class Subjects {
   }
 }
 
+//inheritance
 class Student extends Person {
   private id: number | undefined;
   name: string;
@@ -73,6 +75,7 @@ class Student extends Person {
     return this.subjects;
   }
   
+  //polymorphism as toString method is overridden
   toString() {
     const subjectsInfo = this.subjects.toString();
     return `Id: ${this.id}\nName: ${this.name}\nAge: ${this.age}\nGrade: ${this.grade}\nSubjects: {\n${subjectsInfo}}`;

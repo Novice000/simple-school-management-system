@@ -4,9 +4,9 @@
 
 This project is a simple **School Management System** built using TypeScript and compiled to javascript. Typescript contained in the `ts` directory and the javascript contained in `js` directory. It provides functionality to manage students, their grades, subjects, and calculate averages. The system is designed with an object-oriented approach, utilizing classes like `Student`, `Subjects`, and `SchoolManager`. A preview of functionalities can be found by just running the `index.js` in the `js` folder. Run
 
-```bash
+  ```bash
    node ./js/index.js
-```
+  ```
 
 to preview functionality.
 
